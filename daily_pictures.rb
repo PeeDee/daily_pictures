@@ -2,18 +2,27 @@
 require 'rubygems'
 require 'camping'
     
-Camping.goes :Daily # name of application
+Camping.goes :DailyPictures # name of application
 
-module Daily::Controllers # handles url's
+module DailyPictures::Controllers # handles url's
+
   class Index < R '/'
     def get
       @d = Date.today
       render :picture
     end
   end
+
+  class Picture < R '/picture/(\d+)/(\d+)/(\d+)'
+    def get(year, month, day)
+      @d = Date.new(year.to_i, month.to_i, day.to_i)
+      render :picture
+    end
+  end
+
 end
 
-module Daily::Views # handles views
+module DailyPictures::Views # handles views
 
   def layout
     html do
@@ -25,12 +34,12 @@ module Daily::Views # handles views
   end
 
   def picture
-    p "The current date is: #{@d.to_s}"
+    p "The picture date is: #{@d.to_s}"
     
   end
   
 end
 
 if __FILE__ == $0
-   puts Daily.run
+   puts DailyPictures.run
 end
