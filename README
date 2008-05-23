@@ -1,0 +1,11 @@
+So this is my first camping project and my fist git-controlled project...
+
+The idea is that I've got a photo log of jpgs's, in the directory structure:
+
+".../YYYY/prefixYYMMDD.gif"
+
+and I want to server these up (for my iTouch actually) in a reasonable sequence.
+
+I'm sick of keying in the url, so I thought a simple html page with a gif on it plus a link to the previous and next page's gif would be nice. It would be good if the url defaults to today's file.
+
+That's all.

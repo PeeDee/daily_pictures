@@ -26,6 +26,7 @@ module Daily::Views # handles views
 
   def picture
     p "The current date is: #{@d.to_s}"
+    
   end
   
 end
