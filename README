@@ -1,8 +1,8 @@
-So this is my first camping project and my fist git-controlled project...
+h2. So this is my first camping project and my fist git-controlled project...
 
 The idea is that I've got a photo log of jpgs's, in the directory structure:
 
-".../YYYY/prefixYYMMDD.gif"
+ ".../YYYY/prefixYYMMDD.gif"
 
 and I want to server these up (for my iTouch actually) in a reasonable sequence.
 
