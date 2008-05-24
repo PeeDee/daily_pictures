@@ -1,11 +1,15 @@
-h2. So this is my first camping project and my fist git-controlled project...
+So this is my first camping project and my fist git-controlled project...
 
-The idea is that I've got a photo log of jpgs's, in the directory structure:
+The idea is that I've got a photo log of jpg's, in the directory structure:
 
  ".../YYYY/prefixYYMMDD.gif"
 
-and I want to server these up (for my iTouch actually) in a reasonable sequence.
+and I want to serve these up (for my iTouch actually) in a reasonable sequence, a week at a time.
 
-I'm sick of keying in the url, so I thought a simple html page with a gif on it plus a link to the previous and next page's gif would be nice. It would be good if the url defaults to today's file.
+I'm sick of keying in the url, so I thought a simple html page with a gif on it plus a link to the previous and next page's gifs would be nice. It would be good if the url defaults to today's file but allows a YY/MM/DD format as well.
 
-That's all.
+--------
+
+Well, most of one day messing around on and off between doing chores around the house, and I'm pretty impressed. First time I've had anything to do with camping, git, github, RedCloth or textile... The app is up and running on my local machine using the "camping daily_pictures.rb" web server.
+
+My first attempt at getting it up on Dreamhost on fcgi has failed... I'll have another play another time.

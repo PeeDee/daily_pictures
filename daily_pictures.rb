@@ -52,8 +52,9 @@ module DailyPictures::Views # handles views
   end 
   
   def picture_links
-    # Prev Week  Prev Day  From x to y Next Week Next Day
+    # Prev Week  (Sunday)   Next Week
     '"Previous Week":/picture/' + (@date-7).strftime("%Y/%m/%d") + "    " +
+    #'(Last Sunday)' +
     '"Next Week":/picture/' + (@date+7).strftime("%Y/%m/%d") + "\n\n"
   end
 end
