@@ -37,8 +37,10 @@ module DailyPictures::Views # handles views
   end
 
   def picture
-    "<p>The picture date is: #{@d.to_s}</p>"
-    
+    require 'redcloth'
+    r = RedCloth.new "h1. Pictures\n\n"
+    r << "p. *The picture date* is: _#{@d.to_s}_"
+    r.to_html
   end
   
 end
