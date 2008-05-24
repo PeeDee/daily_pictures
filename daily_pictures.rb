@@ -40,18 +40,21 @@ module DailyPictures::Views # handles views
     require 'redcloth' # http://hobix.com/textile/ 
     r = RedCloth.new "h1=. Pictures\n\n"
     r << "p=. *The picture date* is: _#{@date.to_s}_\n\n"
-    #r << picture_links
+    r << "p=. " << picture_links << "\n\n"
     6.downto(0) do |i|
       d = @date - i
-      r << "p=. !#{d.strftime(DailyPictureSource)}!\n\n" 
+      r << "p=. !#{d.strftime(ENV['PICTURE_SOURCE'])}!\n\n" 
+      # set this environment variable to strftime string which will substitute to path
+      # eg. "http://my.domain.com/pictures/%Y/prefix%y%m%d.jpg"
     end
-    #r << picture_links
+    r << "p=. " << picture_links << "\n\n"
     r.to_html
   end 
   
   def picture_links
     # Prev Week  Prev Day  From x to y Next Week Next Day
-    ""
+    '"Previous Week":/picture/' + (@date-7).strftime("%Y/%m/%d") + "    " +
+    '"Next Week":/picture/' + (@date+7).strftime("%Y/%m/%d") + "\n\n"
   end
 end
 
