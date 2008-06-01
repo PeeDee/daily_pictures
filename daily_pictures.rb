@@ -16,7 +16,7 @@ module DailyPictures::Controllers # handles url's
  
   # handle specific date, eg. http://localhost:3301/picture/2006/10/20
   # also handle just year, or just year and month
-  class Picture < R '/(\d+)/(\d+)/(\d+)', '/picture/(\d+)/(\d+)', '/picture/(\d+)'
+  class Picture < R '/(\d+)/(\d+)/(\d+)', '/(\d+)/(\d+)', '/(\d+)'
     def get(year = "2008", month = "01", day = "01")
       @date = Date.new(year.to_i, month.to_i, day.to_i)
       render :picture
