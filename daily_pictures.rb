@@ -16,7 +16,7 @@ module DailyPictures::Controllers # handles url's
  
   # handle specific date, eg. http://localhost:3301/picture/2006/10/20
   # also handle just year, or just year and month
-  class Picture < R '/picture/(\d+)/(\d+)/(\d+)', '/picture/(\d+)/(\d+)', '/picture/(\d+)'
+  class Picture < R '/(\d+)/(\d+)/(\d+)', '/picture/(\d+)/(\d+)', '/picture/(\d+)'
     def get(year = "2008", month = "01", day = "01")
       @date = Date.new(year.to_i, month.to_i, day.to_i)
       render :picture
@@ -52,14 +52,15 @@ module DailyPictures::Views # handles views
   end 
   
   def picture_links
-    # Prev Week  (Sunday)   Next Week
-    '"Previous Week":/picture/' + (@date-7).strftime("%Y/%m/%d") + "    " +
-    #'(Last Sunday)' +
-    '"Next Week":/picture/' + (@date+7).strftime("%Y/%m/%d") + "\n\n"
+    # Prev Week  Prev Day  From x to y Next Week Next Day
+    '"Previous Week":/' + (@date-7).strftime("%Y/%m/%d") + "    " +
+    '"Next Week":/' + (@date+7).strftime("%Y/%m/%d") + "\n\n"
   end
 end
 
 if __FILE__ == $0
-   puts DailyPictures.run
+#   puts DailyPictures.run
+  require 'camping/fastcgi'
+  Camping::FastCGI.start(DailyPictures)
 end
 
